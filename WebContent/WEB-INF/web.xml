@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>WebsocketTest</display-name>
+  
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+		<param-name>contextConfigLocation</param-name>
+		<!-- <param-value>classpath:spring-mvc.xml</param-value> --><!-- 类路径 -->
+		<param-value>/WEB-INF/spring-mvc.xml</param-value> <!--相对路径,默认路径：/WEB-INF/springmvc-mvc.xml -->
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.sc</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+        <servlet-name>wsChat</servlet-name>
+        <servlet-class>com.websocket.WebsocketAPITest</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>wsChat</servlet-name>
+        <url-pattern>/chat</url-pattern>
+    </servlet-mapping>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
