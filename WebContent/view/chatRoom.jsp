@@ -48,8 +48,7 @@
     }  
   
     function doSend() {  
-        console.log(websocket.readyState);  
-        if (websocket.readyState == SockJS.OPEN) {  
+        if (websocket.readyState == 1) {  //0-CONNECTING;1-OPEN;2-CLOSING;3-CLOSED
             var msg = document.getElementById("message").value;
             if(msg){
             	websocket.send(msg); 

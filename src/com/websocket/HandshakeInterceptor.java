@@ -24,7 +24,6 @@ import org.springframework.web.socket.server.support.HttpSessionHandshakeInterce
 public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor{  
 	@Override  
     public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler handler, Map<String, Object> attributes) throws Exception {  
-        System.out.println("Before handshake "+request.getRemoteAddress().toString());
         //attributes是session里面的所有属性的map表示
         attributes.put("user", getRandomNickName());
         return super.beforeHandshake(request, response, handler, attributes);  
@@ -32,7 +31,6 @@ public class HandshakeInterceptor extends HttpSessionHandshakeInterceptor{
 	
     @Override  
     public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler, Exception ex) {  
-        System.out.println("After handshake "+request.getRemoteAddress().toString());  
         super.afterHandshake(request, response, wsHandler, ex);  
     }        
     

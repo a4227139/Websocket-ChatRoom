@@ -28,6 +28,7 @@ public class ChatRoom extends AbstractWebSocketHandler{
     public void afterConnectionEstablished(WebSocketSession webSocketSession) throws Exception {  
 		System.out.println("Connection established..."+webSocketSession.getRemoteAddress());  
 		System.out.println(webSocketSession.getAttributes().get("user")+" Login");
+		webSocketSession.sendMessage(new TextMessage("I'm "+(webSocketSession.getAttributes().get("user"))));
         sessionList.add(webSocketSession);
     }  
 	
